@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "skills": {
+    "codebase-inspection": {
+      "source": "NousResearch/hermes-agent",
+      "sourceType": "github",
+      "skillPath": "skills/software-development/codebase-inspection/SKILL.md",
+      "computedHash": "751cbcffbd7be16485372497ee5eb33129012653e6e2bb80c1a9a15e03fc3926"
+    },
+    "humanizer": {
+      "source": "blader/humanizer",
+      "sourceType": "github",
+      "skillPath": "SKILL.md",
+      "computedHash": "dcf60c11e23f26e38816ec954e17ceacbae5a157e88c5375347635a53aaa38c4"
+    },
+    "requesting-code-review": {
+      "source": "NousResearch/hermes-agent",
+      "sourceType": "github",
+      "skillPath": "skills/software-development/requesting-code-review/SKILL.md",
+      "computedHash": "fd4eb03381cafee7ff8e7fe3573b36abe8a8342f739ade4f5c7abe8bfc40cbcd"
+    }
+  }
+}

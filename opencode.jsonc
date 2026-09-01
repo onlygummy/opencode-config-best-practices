@@ -1,0 +1,58 @@
+{
+  // Agent definitions are in Markdown files under ./agents/
+  // Each file's YAML frontmatter defines metadata (mode, model, permissions)
+  // and the body is the system prompt.
+  // See https://opencode.ai/docs/agents for details.
+  "$schema": "https://opencode.ai/config.json",
+  "default_agent": "plan",
+  // Global permission baseline — agent-specific overrides merge on top
+  // Principle: minimum privilege per agent (YAGNI + SOC)
+  // Last matching rule wins for pattern-based permissions.
+  "permission": {
+    // File editing — denied globally. Only Build agent overrides to allow.
+    "edit": "deny",
+    "read": "allow",
+    "glob": "allow",
+    "grep": "allow",
+    "webfetch": "allow",
+    // Skills — allow globally, per-skill rules below (see https://opencode.ai/docs/th/skills/#กำหนดค่าสิทธิ์)
+    "skill": {
+      "*": "allow",
+      "humanizer": "allow",
+      "requesting-code-review": "allow"
+    },
+    // Subagent dispatch — denied globally. No agent needs task currently.
+    "task": "deny",
+    // Shell — read-only scoped globally. Only Build overrides to full allow.
+    // Read commands allowed: git, rg, file listing, content reading, path checks.
+    "bash": {
+      "*": "deny",
+      "git *": "allow",
+      "rg *": "allow",
+      "cat *": "allow",
+      "dir *": "allow",
+      "ls *": "allow",
+      "type *": "allow",
+      "Get-ChildItem *": "allow",
+      "Get-Content *": "allow",
+      "Select-String *": "allow",
+      "Test-Path *": "allow",
+      "Write-Output *": "allow",
+      "echo *": "allow",
+    },
+  },
+  "lsp": {
+    "typescript": {
+      "command": ["typescript-language-server", "--stdio"],
+      "extensions": [".ts", ".tsx"],
+    },
+    "ty": {
+      "command": ["uv", "run", "ty", "server"],
+      "extensions": [".py", ".pyi"],
+    },
+    "pyright": {
+      "disabled": true,
+    },
+  },
+  "shell": "powershell",
+}
