@@ -9,12 +9,12 @@ All agents are accessible via **tab switch** in the TUI.
 | Tab | Agent | Mode | Capability |
 |-----|-------|------|------------|
 | **Plan** (default) | Systems Architect | primary | Requirement analysis, architecture design, work breakdown structure. Auto-calls `humanizer` before delivering any plan. |
-| **Build** | Software Engineer | primary | Write and refactor code following Clean Code (SOC, DYC, DRY, KISS, TDD, YAGNI). Auto-calls `humanizer` for docs and UX copy, and `requesting-code-review` before commit. |
+| **Build** | Software Engineer | primary | Write and refactor code following Clean Code (SOC, DYC, DRY, KISS, TDD, YAGNI). Auto-calls `humanizer` for docs and UX copy. |
 | **Review** | Code Review Specialist | primary | Independent pre-commit verification, security scan, quality gates, and Git Flow commit message generation. Uses `requesting-code-review` + `humanizer`. Read-only. |
 
 
 - **Plan** is the default entry point — start here for architecture and planning. Uses readability mode with clear, complete sentences.
-- **Build** handles implementation; switch to it when a plan is ready. Has `edit: allow` and `skill: allow`.
+- **Build** handles implementation; switch to it when a plan is ready. Has `edit: allow` and `skill: allow`. Code review is handled by Review agent.
 - **Review** is an independent reviewer that verifies `build`'s changes from a fresh context and generates Git Flow commit messages. Uses `requesting-code-review` skill and `humanizer` for report prose. Read-only.
 - All agents auto-detect the user's language and respond accordingly.
 
@@ -25,7 +25,7 @@ Skills are reusable `SKILL.md` files loaded on demand via the native `skill` too
 | Skill | Purpose | Used by | Trigger |
 |-------|---------|---------|---------|
 | `humanizer` (v2.11.2) | Rewrite AI-sounding prose using 35 patterns from Wikipedia's Signs of AI writing. Keeps meaning, does not invent facts. | `plan`, `build` | Auto — `plan` after any plan longer than 3 paragraphs, `build` after docs/UX copy (file mode for files, embedded mode otherwise). Also available via `/humanizer` or natural language. |
-| `requesting-code-review` (v2.0.0) | Pre-commit verification: `git diff`, security scan, tests/lint baseline, self-review checklist, independent review, auto-fix loop, then commit with Git Flow format. | `build`, `review` | Auto — `build` after 2+ file edits before `git commit`/`push`; `review` on tab switch when verifying `build`'s diff. Manual: `skill({ name: "requesting-code-review" })`. Uses `task` instead of Hermes `delegate_task`. Skip for docs-only or when user says "skip verification". |
+| `requesting-code-review` (v2.0.0) | Pre-commit verification: `git diff`, security scan, tests/lint baseline, self-review checklist, independent review, auto-fix loop, then commit with Git Flow format. | `review` | Auto — `review` on tab switch when verifying `build`'s diff. Manual: `skill({ name: "requesting-code-review" })`. Uses `task` instead of Hermes `delegate_task`. Skip for docs-only or when user says "skip verification". |
 
 Global skill folder (single source of truth):
 
@@ -67,7 +67,7 @@ See https://opencode.ai/docs/th/skills for file placement, frontmatter rules (`n
 │   └── requesting-code-review/SKILL.md # Pre-commit security and quality gates
 ├── agents/
 │   ├── plan.md                    # Plan — Systems Architect (readability + humanizer auto)
-│   ├── build.md                   # Build — Software Engineer (humanizer + requesting-code-review + UX auto)
+│   ├── build.md                   # Build — Software Engineer (humanizer + UX auto)
 │   ├── review.md                  # Review — Code Review Specialist (verify + Git Flow commit, read-only)
 └── package.json                   # @opencode-ai/plugin 1.17.4
 ```
