@@ -1,0 +1,5 @@
+interface:
+  display_name: "Obsidian Domain Modeling"
+  short_description: "Build domain model in Obsidian vault using MCP tools"
+  policy:
+    allow_implicit_invocation: true

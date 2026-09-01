@@ -5,6 +5,17 @@
   // See https://opencode.ai/docs/agents for details.
   "$schema": "https://opencode.ai/config.json",
   "default_agent": "plan",
+  "mcp": {
+    "obsidian": {
+      "enabled": true,
+      "type": "remote",
+      "url": "http://127.0.0.1:27123/mcp/",
+      "oauth": false,
+      "headers": {
+        "Authorization": "Bearer {file:.secrets/obsidian-api-key}",
+      },
+    },
+  },
   // Global permission baseline — agent-specific overrides merge on top
   // Principle: minimum privilege per agent (YAGNI + SOC)
   // Last matching rule wins for pattern-based permissions.
@@ -19,7 +30,11 @@
     "skill": {
       "*": "allow",
       "humanizer": "allow",
-      "requesting-code-review": "allow"
+      "requesting-code-review": "allow",
+      "grilling": "allow",
+      "domain-modeling": "allow",
+      "grill-with-docs": "allow",
+      "second-brain": "allow",
     },
     // Subagent dispatch — denied globally. No agent needs task currently.
     "task": "deny",
