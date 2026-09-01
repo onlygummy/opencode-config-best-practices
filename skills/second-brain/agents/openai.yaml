@@ -1,0 +1,5 @@
+interface:
+  display_name: "Second Brain"
+  short_description: "Manage knowledge in second brain vault"
+  policy:
+    allow_implicit_invocation: true

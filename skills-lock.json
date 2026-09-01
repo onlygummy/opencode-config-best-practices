@@ -1,11 +1,23 @@
 {
   "version": 1,
   "skills": {
-    "codebase-inspection": {
-      "source": "NousResearch/hermes-agent",
+    "domain-modeling": {
+      "source": "local",
+      "sourceType": "local",
+      "skillPath": "skills/domain-modeling/SKILL.md",
+      "computedHash": "local"
+    },
+    "grill-with-docs": {
+      "source": "mattpocock/skills",
       "sourceType": "github",
-      "skillPath": "skills/software-development/codebase-inspection/SKILL.md",
-      "computedHash": "751cbcffbd7be16485372497ee5eb33129012653e6e2bb80c1a9a15e03fc3926"
+      "skillPath": "skills/engineering/grill-with-docs/SKILL.md",
+      "computedHash": "a610223c9796f755b603f15ec114849a4b38b9ba3006acfa9bdf3cc56dd44dad"
+    },
+    "grilling": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "skillPath": "skills/productivity/grilling/SKILL.md",
+      "computedHash": "4fa026e5979770347b3357ff5139e1e41d21c3a9f7335e9cd2811cb5b8d32f2f"
     },
     "humanizer": {
       "source": "blader/humanizer",
@@ -18,6 +30,12 @@
       "sourceType": "github",
       "skillPath": "skills/software-development/requesting-code-review/SKILL.md",
       "computedHash": "fd4eb03381cafee7ff8e7fe3573b36abe8a8342f739ade4f5c7abe8bfc40cbcd"
+    },
+    "second-brain": {
+      "source": "local",
+      "sourceType": "local",
+      "skillPath": "skills/second-brain/SKILL.md",
+      "computedHash": "local"
     }
   }
 }
