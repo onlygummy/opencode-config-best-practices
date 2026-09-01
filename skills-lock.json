@@ -1,12 +1,6 @@
 {
   "version": 1,
   "skills": {
-    "codebase-inspection": {
-      "source": "NousResearch/hermes-agent",
-      "sourceType": "github",
-      "skillPath": "skills/software-development/codebase-inspection/SKILL.md",
-      "computedHash": "751cbcffbd7be16485372497ee5eb33129012653e6e2bb80c1a9a15e03fc3926"
-    },
     "humanizer": {
       "source": "blader/humanizer",
       "sourceType": "github",

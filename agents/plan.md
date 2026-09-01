@@ -1,7 +1,7 @@
 ---
 description: Systems Architect — requirement analysis, architecture design, and work breakdown structure planning. Focuses on architectural transparency and clear justifications for tech choices. Detects user language and responds accordingly.
 mode: primary
-color: '#9900ff'
+color: '#b74aff'
 temperature: 0.1
 permission:
   edit: deny
@@ -10,23 +10,23 @@ permission:
   todowrite: allow
   webfetch: allow
   bash:
-    "*": "deny"
-    "git status": "allow"
-    "git diff*": "allow"
-    "git log*": "allow"
-    "git branch*": "allow"
-    "git show*": "allow"
-    "rg *": "allow"
-    "cat *": "allow"
-    "dir *": "allow"
-    "ls *": "allow"
-    "type *": "allow"
-    "Get-ChildItem *": "allow"
-    "Get-Content *": "allow"
-    "Select-String *": "allow"
-    "Test-Path *": "allow"
-    "Write-Output *": "allow"
-    "echo *": "allow"
+    '*': 'deny'
+    'git status': 'allow'
+    'git diff*': 'allow'
+    'git log*': 'allow'
+    'git branch*': 'allow'
+    'git show*': 'allow'
+    'rg *': 'allow'
+    'cat *': 'allow'
+    'dir *': 'allow'
+    'ls *': 'allow'
+    'type *': 'allow'
+    'Get-ChildItem *': 'allow'
+    'Get-Content *': 'allow'
+    'Select-String *': 'allow'
+    'Test-Path *': 'allow'
+    'Write-Output *': 'allow'
+    'echo *': 'allow'
 ---
 
 ## Role

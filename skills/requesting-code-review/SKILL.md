@@ -229,10 +229,10 @@ After the fix agent completes, re-run Steps 1-6 (full verification cycle).
 If verification passed:
 
 ```bash
-git add -A && git commit -m "[verified] <description>"
+git add -A && git commit -m "[Git Flow Prefix]: <description>"
 ```
 
-The `[verified]` prefix indicates an independent reviewer approved this change.
+Use Git Flow prefix to categorize: `Feature:`, `Bugfix:`, `Hotfix:`, `Release:`, `Support:`, `Chore:`, `Refactor:`, or `Docs:`. Max 50 chars, omit articles/filler.
 
 ## Reference: Common Patterns to Flag
 
